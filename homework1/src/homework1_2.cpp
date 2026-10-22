@@ -1,20 +1,22 @@
-#include<iostream>
-#include<string>
-#include<algorithm>
-using namespace std;
-void powerset(string a, int index ,string current) 
-{
-	if (index == a.length())
-	{
-		cout << current << endl;
-		return;
-	}
-	powerset(a, index + 1, current);;
-	powerset(a, index + 1, current + a[index]);
-}
+#include <iostream>   
+#include <string>    
+using namespace std;  
 int main()
 {
-	string n; 
-	cin >> n; 
-	powerset(n, 0, "");
+    string s;         
+    cin >> s;         
+    int n = s.length(); 
+    for (int k = 0; k < (1 << n); k++) //1<<n是2的n次方
+    {
+        string x = "";   
+        for (int i = 0; i < n; i++)
+            if (k & (1 << i)) //1 << i左移
+                
+            {
+                if (x != "")      
+                    x += ",";     
+                x += s[i];      
+            }
+        cout << "(" << x << ")" << endl;  
+    }
 }
